@@ -3,7 +3,7 @@ const Colors = {
   black: '#000000',
   turquese: '#1abc9c',
   turqueseDark: '#16a085',
-  green: '#00ffff', //wps
+  green: '#52ecc6', //wps
   greenDark: '#27ae60',
   blue: '#515ded', //wps 3e4aec
   blueDark: '#2980b9',
