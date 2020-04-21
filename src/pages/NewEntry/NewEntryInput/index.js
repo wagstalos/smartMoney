@@ -69,13 +69,13 @@ const styles = StyleSheet.create({
   },
   debitButtonPrefix: {
     fontSize: 28,
-    color: Colors.white,
+    color: Colors.blue,
     fontWeight: 'bold',
     minWidth: 10,
   },
   debitButtonText: {
     fontSize: 28,
-    color: Colors.white,
+    color: Colors.blue,
   },
   input: {
     flex: 1,

@@ -76,7 +76,7 @@ export const getDefaultCategories = () => {
     {
       id: getUUID(),
       name: 'Lazer',
-      color: '#ecf0f1',
+      color: '#828af3',
       isDebit: true,
       order: 10,
     },
@@ -112,7 +112,7 @@ export const getDefaultCategories = () => {
     {
       id: getUUID(),
       name: 'Salário',
-      color: '#487eb0',
+      color: '#52ecc6',
       isCredit: true,
       order: 3,
     },
