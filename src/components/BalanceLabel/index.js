@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    color: Colors.blue,
+    color: Colors.dark,
     fontWeight: 'bold',
   },
   panel: {
