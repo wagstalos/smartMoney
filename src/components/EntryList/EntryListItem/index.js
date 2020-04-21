@@ -10,8 +10,8 @@ const EntryListItem = ({entry, isFirstItem, isLastItem, onEntryPress}) => {
   const bulletLineY = isFirstItem ? 25 : 0;
   const bulletLineHeight = isLastItem ? 25 : 50;
   const showBulletLine = !(isFirstItem && isLastItem);
-  //const bulletColor = entry.category.color || Colors.white;
-  const bulletColor = Colors.violet;
+  const bulletColor = entry.category.color || Colors.white;
+  //const bulletColor = Colors.violet;
 
   return (
     <TouchableOpacity
@@ -27,14 +27,14 @@ const EntryListItem = ({entry, isFirstItem, isLastItem, onEntryPress}) => {
                 y={bulletLineY}
                 width="1.5"
                 height={bulletLineHeight}
-                fill={Colors.background}
+                fill={Colors.green}
               />
             )}
             <Circle
               cx="10"
               cy="25"
               r="8"
-              stroke={Colors.background}
+              stroke={Colors.green}
               strokeWidth="1.5"
               fill={bulletColor}
             />

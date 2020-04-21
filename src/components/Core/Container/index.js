@@ -54,15 +54,16 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
-    //color: Colors.asphaltDark,
-    color: Colors.dark,
+    color: Colors.asphalt,
+    //color: Colors.dark,
   },
   actionContainer: {
     flexDirection: 'row',
+    marginTop: 5,
   },
   actionLabel: {
     flex: 1,
-    fontSize: 18,
+    fontSize: 16,
     color: Colors.blue,
   },
   actionButton: {
