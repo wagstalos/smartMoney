@@ -7,7 +7,7 @@ const Colors = {
   greenDark: '#27ae60',
   blue: '#515ded', //wps 3e4aec
   blueDark: '#2980b9',
-  violet: '#828af3', //wps 5f2cd5
+  violet: '#788eec', //wps 5f2cd5 828af3
   violetDark: '#8e44ad',
   yellow: '#fcc84f',
   yellowDark: '#f8bb2d',

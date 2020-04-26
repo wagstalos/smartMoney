@@ -33,7 +33,7 @@ export const getDefaultCategories = () => {
     },
     {
       id: getUUID(),
-      name: 'Cuidados Pessoais',
+      name: 'Saúde',
       color: '#f1c40f',
       isDebit: true,
       order: 4,

@@ -8,6 +8,11 @@ import {
   StyleSheet,
 } from 'react-native';
 
+import ActionFooter, {
+  ActionPrimaryButton,
+  ActionSecondaryButton,
+} from '../../../components/Core/ActionFooter';
+
 import {
   getDebitCategories,
   getCreditCategories,
@@ -64,9 +69,10 @@ const NewEntryCategoryPicker = ({debit, category, onChangeCategory}) => {
               </TouchableOpacity>
             )}
           />
-          <TouchableOpacity style={styles.closeButton} onPress={onClosePress}>
-            <Text style={styles.closeButtonText}>Fechar</Text>
-          </TouchableOpacity>
+
+          <ActionFooter>
+            <ActionPrimaryButton title="Fechar" onPress={onClosePress} />
+          </ActionFooter>
         </View>
       </Modal>
     </View>
@@ -99,24 +105,6 @@ const styles = StyleSheet.create({
   },
   modalItemText: {
     fontSize: 22,
-    color: Colors.blue,
-    textAlign: 'center',
-  },
-  closeButton: {
-    alignSelf: 'center',
-    backgroundColor: Colors.green,
-    borderColor: Colors.green,
-    shadowColor: Colors.black,
-    elevation: 5,
-    borderWidth: 2,
-    borderRadius: 30,
-    marginVertical: 10,
-    marginHorizontal: 30,
-    paddingHorizontal: 20,
-    paddingVertical: 5,
-  },
-  closeButtonText: {
-    fontSize: 16,
     color: Colors.blue,
     textAlign: 'center',
   },
