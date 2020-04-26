@@ -19,7 +19,7 @@ const EntryList = ({days = 7, onEntryPress, onPressActionButton}) => {
     loadEntries();
 
     console.log('EntryList :: useEffect');
-  }, []);
+  }, [days]);
 
   return (
     <Container
