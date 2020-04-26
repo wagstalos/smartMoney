@@ -12,7 +12,7 @@ const EntryList = ({days = 7, onEntryPress, onPressActionButton}) => {
 
   useEffect(() => {
     async function loadEntries() {
-      const data = await getEntries();
+      const data = await getEntries(days);
       setEntries(data);
     }
 
