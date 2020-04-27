@@ -29,7 +29,7 @@ export const ActionSecondaryButton = ({title, onPress}) => {
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: Colors.white,
+    // backgroundColor: Colors.red,
     paddingVertical: 10,
   },
   inner: {

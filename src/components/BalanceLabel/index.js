@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   label: {
-    fontSize: 14,
-    color: Colors.dark,
+    fontSize: 16,
+    color: Colors.asphalt,
     fontWeight: 'bold',
   },
   panel: {

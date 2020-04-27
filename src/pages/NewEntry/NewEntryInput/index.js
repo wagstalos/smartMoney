@@ -7,12 +7,12 @@ import Colors from '../../../styles/Colors';
 
 const NewEntryInput = ({value, onChangeDebit, onChangeValue}) => {
   const [debit, setDebit] = useState(value <= 0 ? -1 : 1);
-  const [debitPrefix, setDebitPrefix] = useState(value <= 0 ? '-' : '');
+  const [debitPrefix, setDebitPrefix] = useState(value <= 0 ? '-' : '+');
 
   const onChangeDebitCredit = () => {
     if (debit < 0) {
       setDebit(1);
-      setDebitPrefix('');
+      setDebitPrefix('+');
       onChangeDebit(false);
     } else {
       setDebit(-1);
@@ -29,8 +29,9 @@ const NewEntryInput = ({value, onChangeDebit, onChangeValue}) => {
         style={styles.debitButton}
         onPress={onChangeDebitCredit}>
         <Text style={styles.debitButtonPrefix}>{debitPrefix}</Text>
-        <Text style={styles.debitButtonText}>R$</Text>
+        {/* <Text style={styles.debitButtonText}>R$</Text> */}
       </TouchableOpacity>
+      <Text style={styles.debitButtonTextRS}>R$</Text>
       <TextInputMask
         style={styles.input}
         type={'money'}
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
   },
   debitButton: {
     flexDirection: 'row',
-    paddingHorizontal: 20,
+    paddingHorizontal: 25,
     paddingVertical: 10,
     backgroundColor: Colors.green,
     shadowColor: Colors.black,
@@ -71,13 +72,18 @@ const styles = StyleSheet.create({
   },
   debitButtonPrefix: {
     fontSize: 28,
-    color: Colors.blue,
+    color: Colors.white,
     fontWeight: 'bold',
     minWidth: 10,
   },
   debitButtonText: {
     fontSize: 28,
+    color: Colors.white,
+  },
+  debitButtonTextRS: {
+    fontSize: 28,
     color: Colors.blue,
+    alignSelf: 'center',
   },
   input: {
     flex: 1,

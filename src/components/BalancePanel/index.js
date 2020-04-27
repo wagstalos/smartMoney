@@ -21,7 +21,7 @@ const BalancePanel = ({onNewEntryPress}) => {
         <BalancePanelChart />
       </LinearGradient>
       <TouchableOpacity style={styles.button} onPress={onNewEntryPress}>
-        <Icon name="add" size={30} color={Colors.background} />
+        <Icon name="add" size={30} color={Colors.green} />
         {/* <Text style={styles.more}>+</Text> */}
       </TouchableOpacity>
     </View>

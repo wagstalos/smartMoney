@@ -28,11 +28,10 @@ const RelativeDaysModal = ({isVisible, onConfirm, onCancel}) => {
             </TouchableOpacity>
           )}
         />
+        <ActionFooter>
+          <ActionPrimaryButton title="Fechar" onPress={onCancel} />
+        </ActionFooter>
       </View>
-
-      <ActionFooter>
-        <ActionPrimaryButton title="Fechar" onPress={onCancel} />
-      </ActionFooter>
     </Modal>
   );
 };

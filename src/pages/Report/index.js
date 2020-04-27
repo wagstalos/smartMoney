@@ -17,6 +17,7 @@ import BalanceLabel from '../../components/BalanceLabel';
 import EntrySummary from '../../components/EntrySummary';
 import EntryList from '../../components/EntryList';
 import RelativeDaysModal from '../../components/RelativeDaysModal';
+import CategoryModal from '../../components/CategoryModal';
 
 import Colors from '../../styles/Colors';
 
@@ -24,21 +25,39 @@ const Report = ({navigation}) => {
   const [relativeDaysModalVisible, setRelativeDaysModalVisible] = useState(
     false,
   );
+  const [categoryDaysModalVisible, setCategoryDaysModalVisible] = useState(
+    false,
+  );
+
   const [relativeDays, setRelativeDays] = useState(7);
+  const [category, setcategory] = useState({
+    id: null,
+    name: 'Todas Caetgorias',
+  });
 
   const onRelativeDaysPress = item => {
     setRelativeDays(item);
     onRelativeDaysClosePress();
   };
 
+  const onCategoryPress = item => {
+    setcategory(item);
+    onCategoryClosePress();
+  };
+
   const onRelativeDaysClosePress = () => {
     setRelativeDaysModalVisible(false);
+  };
+
+  const onCategoryClosePress = () => {
+    setCategoryDaysModalVisible(false);
   };
 
   return (
     <View style={styles.container}>
       <BalanceLabel />
-      <View>
+
+      <View style={styles.filtersContainer}>
         <TouchableOpacity
           style={styles.filterButton}
           onPress={() => {
@@ -52,11 +71,26 @@ const Report = ({navigation}) => {
           onConfirm={onRelativeDaysPress}
           onCancel={onRelativeDaysClosePress}
         />
+
+        <TouchableOpacity
+          style={styles.filterButton}
+          onPress={() => {
+            setCategoryDaysModalVisible(true);
+          }}>
+          <Text style={styles.filterButtonText}>{category.name}</Text>
+          <Icon name="keyboard-arrow-down" size={20} color={Colors.blue} />
+        </TouchableOpacity>
+        <CategoryModal
+          categoryType="all"
+          isVisible={categoryDaysModalVisible}
+          onConfirm={onCategoryPress}
+          onCancel={onCategoryClosePress}
+        />
       </View>
 
       <ScrollView>
         <EntrySummary />
-        <EntryList days={relativeDays} />
+        <EntryList days={relativeDays} category={category} />
       </ScrollView>
 
       <ActionFooter />
@@ -75,6 +109,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.white,
     padding: 10,
+  },
+  filtersContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginVertical: 5,
   },
   filterButton: {
     flexDirection: 'row',
