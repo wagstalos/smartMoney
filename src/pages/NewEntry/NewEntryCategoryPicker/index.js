@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   },
   pickerButtonText: {
     fontSize: 28,
-    color: Colors.violet,
+    color: Colors.blue,
     textAlign: 'center',
   },
 });

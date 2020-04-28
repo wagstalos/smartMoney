@@ -4,11 +4,13 @@ const Colors = {
   turquese: '#1abc9c',
   turqueseDark: '#16a085',
   green: '#52ecc6', //wps
-  greenDark: '#27ae60',
+  greenDark: '#42c2a3',
   blue: '#515ded', //wps 3e4aec
   blueDark: '#2980b9',
   violet: '#788eec', //wps 5f2cd5 828af3
-  violetDark: '#8e44ad',
+  violetDark: '#5670de',
+  violetText: '#3F4187',
+  pink: '#9F59C5',
   yellow: '#fcc84f',
   yellowDark: '#f8bb2d',
   orange: '#e67e22',

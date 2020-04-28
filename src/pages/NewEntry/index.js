@@ -71,7 +71,7 @@ const NewEntry = ({navigation}) => {
         <View>
           <Text style={styles.textOrientation}>
             {' '}
-            *Clique no R$ para mudar ente receita e despesa
+            *Clique no Botão para mudar entre receita e despesa
           </Text>
         </View>
 

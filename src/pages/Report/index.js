@@ -64,7 +64,7 @@ const Report = ({navigation}) => {
             setRelativeDaysModalVisible(true);
           }}>
           <Text style={styles.filterButtonText}>Últimos 7 dias</Text>
-          <Icon name="keyboard-arrow-down" size={20} color={Colors.blue} />
+          <Icon name="keyboard-arrow-down" size={20} color={Colors.white} />
         </TouchableOpacity>
         <RelativeDaysModal
           isVisible={relativeDaysModalVisible}
@@ -78,7 +78,7 @@ const Report = ({navigation}) => {
             setCategoryDaysModalVisible(true);
           }}>
           <Text style={styles.filterButtonText}>{category.name}</Text>
-          <Icon name="keyboard-arrow-down" size={20} color={Colors.blue} />
+          <Icon name="keyboard-arrow-down" size={20} color={Colors.white} />
         </TouchableOpacity>
         <CategoryModal
           categoryType="all"
@@ -107,7 +107,7 @@ const Report = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.violet,
     padding: 10,
   },
   filtersContainer: {
@@ -117,17 +117,17 @@ const styles = StyleSheet.create({
   },
   filterButton: {
     flexDirection: 'row',
-    backgroundColor: Colors.white,
-    borderColor: Colors.blue,
-    borderWidth: 1,
+    backgroundColor: Colors.violetDark,
+    // borderColor: Colors.white,
+    // borderWidth: 1,
     borderRadius: 150,
     paddingVertical: 5,
     paddingHorizontal: 10,
     marginHorizontal: 5,
   },
   filterButtonText: {
-    color: Colors.blue,
-    // fontWeight: 'bold',
+    color: Colors.white,
+    fontWeight: 'bold',
   },
 });
 
