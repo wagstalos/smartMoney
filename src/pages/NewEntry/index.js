@@ -24,7 +24,7 @@ const NewEntry = ({navigation}) => {
     category: {id: null, name: 'Selecione'},
   });
 
-  const [, saveEntry, deleteEntry ] = useEntries();
+  const [, saveEntry, deleteEntry] = useEntries();
 
   const [debit, setDebit] = useState(entry.amount <= 0);
   const [amount, setAmount] = useState(entry.amount);
