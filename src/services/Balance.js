@@ -83,7 +83,7 @@ export const getBalanceSumByCategory = async (days, showOthers = true) => {
     const data1 = _(entries).slice(0, othersLimit);
     const data2 = [
       {
-        category: {id: getUUID(), name: 'Outros', color: Colors.champagne},
+        category: {id: getUUID(), name: 'Outros', color: Colors.metal},
         amount: _(entries)
           .slice(othersLimit)
           .map(({amount}) => amount)
