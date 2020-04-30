@@ -16,7 +16,7 @@ const BalanceLabel = () => {
 
       <LinearGradient
         style={styles.panel}
-        colors={[Colors.violetDark, Colors.blue]}>
+        colors={[Colors.green, Colors.greenDark]}>
         <Text style={styles.value}>{balance}</Text>
       </LinearGradient>
     </View>
