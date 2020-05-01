@@ -25,14 +25,12 @@ const Report = ({navigation}) => {
   const [relativeDaysModalVisible, setRelativeDaysModalVisible] = useState(
     false,
   );
-  const [categoryDaysModalVisible, setCategoryDaysModalVisible] = useState(
-    false,
-  );
+  const [categoryModalVisible, setCategoryModalVisible] = useState(false);
 
   const [relativeDays, setRelativeDays] = useState(7);
-  const [category, setcategory] = useState({
+  const [category, setCategory] = useState({
     id: null,
-    name: 'Todas Caetgorias',
+    name: 'Todas Categorias',
   });
 
   const onRelativeDaysPress = item => {
@@ -41,7 +39,7 @@ const Report = ({navigation}) => {
   };
 
   const onCategoryPress = item => {
-    setcategory(item);
+    setCategory(item);
     onCategoryClosePress();
   };
 
@@ -50,7 +48,7 @@ const Report = ({navigation}) => {
   };
 
   const onCategoryClosePress = () => {
-    setCategoryDaysModalVisible(false);
+    setCategoryModalVisible(false);
   };
 
   return (
@@ -63,7 +61,10 @@ const Report = ({navigation}) => {
           onPress={() => {
             setRelativeDaysModalVisible(true);
           }}>
-          <Text style={styles.filterButtonText}>Últimos 7 dias</Text>
+          <Text
+            style={
+              styles.filterButtonText
+            }>{`Últimos ${relativeDays} dias`}</Text>
           <Icon name="keyboard-arrow-down" size={20} color={Colors.white} />
         </TouchableOpacity>
         <RelativeDaysModal
@@ -75,14 +76,14 @@ const Report = ({navigation}) => {
         <TouchableOpacity
           style={styles.filterButton}
           onPress={() => {
-            setCategoryDaysModalVisible(true);
+            setCategoryModalVisible(true);
           }}>
           <Text style={styles.filterButtonText}>{category.name}</Text>
           <Icon name="keyboard-arrow-down" size={20} color={Colors.white} />
         </TouchableOpacity>
         <CategoryModal
           categoryType="all"
-          isVisible={categoryDaysModalVisible}
+          isVisible={categoryModalVisible}
           onConfirm={onCategoryPress}
           onCancel={onCategoryClosePress}
         />
@@ -93,13 +94,14 @@ const Report = ({navigation}) => {
         <EntryList days={relativeDays} category={category} />
       </ScrollView>
 
-      <ActionFooter />
-      <ActionPrimaryButton
-        title="Fechar"
-        onPress={() => {
-          navigation.goBack();
-        }}
-      />
+      <ActionFooter>
+        <ActionPrimaryButton
+          title="Fechar"
+          onPress={() => {
+            navigation.goBack();
+          }}
+        />
+      </ActionFooter>
     </View>
   );
 };
