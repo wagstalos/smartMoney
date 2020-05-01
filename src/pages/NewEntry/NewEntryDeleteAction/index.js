@@ -5,18 +5,19 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Colors from '../../../styles/Colors';
 
-const NewEntryDeleteAction = ({entry, onOKPress}) => {
+const NewEntryDeleteAction = ({entry, onOkPress}) => {
   const onDelete = () => {
     Alert.alert(
-      'Apagar',
+      'Apagar?',
       'Você deseja realmente apagar este lançamento?',
       [
         {text: 'Não', style: 'cancel'},
-        {text: 'Sim', onPress: () => onOKPress()},
+        {text: 'Sim', onPress: () => onOkPress()},
       ],
       {cancelable: false},
     );
   };
+
   return (
     entry.id && (
       <View>

@@ -31,7 +31,7 @@ const Colors = {
   danger: '#f37272',
   light: '#fff',
   dark: '#3a3f47',
-  background: '#52ecc6', //wps  0d1015 5ecaaf 282b32
+  background: '#fff', //wps  0d1015 5ecaaf 282b32 #52ecc6'
 };
 
 export default Colors;
