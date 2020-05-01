@@ -15,13 +15,13 @@ export const getEntries = async (days, category) => {
       .subtract(days, 'days')
       .toDate();
 
-    console.log('getEntries :: days', days);
+    console.log('getEntries :: days ', days);
 
     realm = realm.filtered('entryAt >= $0', date);
   }
 
   if (category && category.id) {
-    console.log('getEntries :: category', JSON.stringify(category));
+    console.log('getEntries :: category ', JSON.stringify(category));
 
     realm = realm.filtered('category == $0', category);
   }
@@ -44,6 +44,9 @@ export const saveEntry = async (value, entry = {}) => {
         amount: value.amount || entry.amount,
         entryAt: value.entryAt || entry.entryAt,
         description: value.category.name,
+        address: value.address || entry.name,
+        latitude: value.latitude || entry.latitude,
+        longitude: value.longitude || entry.longitude,
         isInit: false,
         category: value.category || entry.category,
       };
@@ -62,15 +65,16 @@ export const saveEntry = async (value, entry = {}) => {
 
 export const deleteEntry = async entry => {
   const realm = await getRealm();
+
   try {
     realm.write(() => {
       realm.delete(entry);
     });
   } catch (error) {
     console.error(
-      'saveEntry :: error on delete object: ',
+      'deleteEntry :: error on delete object: ',
       JSON.stringify(entry),
     );
-    Alert.alert('Erro ao excluir lançamento.');
+    Alert.alert('Erro ao excluir este lançamento.');
   }
 };

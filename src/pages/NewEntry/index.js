@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 
 import ActionFooter, {
   ActionPrimaryButton,
@@ -22,6 +22,9 @@ const NewEntry = ({navigation}) => {
     id: null,
     amount: 0,
     entryAt: new Date(),
+    address: null,
+    latitude: null,
+    longitude: null,
     category: {id: null, name: 'Selecione'},
   });
 
@@ -31,11 +34,15 @@ const NewEntry = ({navigation}) => {
   const [amount, setAmount] = useState(entry.amount);
   const [category, setCategory] = useState(entry.category);
   const [entryAt, setEntryAt] = useState(entry.entryAt);
+  const [address, setAddress] = useState(entry.address);
+  const [latitude, setLatitude] = useState(entry.latitude);
+  const [longitude, setLongitude] = useState(entry.longitude);
 
   const isValid = () => {
     if (parseFloat(amount) !== 0) {
       return true;
     }
+
     return false;
   };
 
@@ -43,6 +50,9 @@ const NewEntry = ({navigation}) => {
     const data = {
       amount: parseFloat(amount),
       category: category,
+      address: address,
+      latitude: latitude,
+      longitude: longitude,
       entryAt: entryAt,
     };
 
@@ -67,16 +77,9 @@ const NewEntry = ({navigation}) => {
       <View style={styles.formContainer}>
         <NewEntryInput
           value={amount}
-          onChangeDebit={setDebit}
           onChangeValue={setAmount}
+          onChangeDebit={setDebit}
         />
-        <View>
-          <Text style={styles.textOrientation}>
-            {' '}
-            *Clique no Botão para mudar entre receita e despesa
-          </Text>
-        </View>
-
         <NewEntryCategoryPicker
           debit={debit}
           category={category}
@@ -85,8 +88,15 @@ const NewEntry = ({navigation}) => {
 
         <View style={styles.formActionContainer}>
           <NewEntryDatePicker value={entryAt} onChange={setEntryAt} />
-          <NewEntryAddressPicker />
-          <NewEntryDeleteAction entry={entry} onOKPress={onDelete} />
+          <NewEntryAddressPicker
+            address={address}
+            onChange={({latitude, longitude, address}) => {
+              setLatitude(latitude);
+              setLongitude(longitude);
+              setAddress(address);
+            }}
+          />
+          <NewEntryDeleteAction entry={entry} onOkPress={onDelete} />
         </View>
       </View>
 
@@ -106,16 +116,12 @@ const NewEntry = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
     backgroundColor: Colors.white,
+    padding: 10,
   },
   formContainer: {
     flex: 1,
     paddingVertical: 20,
-  },
-  textOrientation: {
-    textAlign: 'center',
-    color: Colors.metalDark,
   },
   formActionContainer: {
     flexDirection: 'row',

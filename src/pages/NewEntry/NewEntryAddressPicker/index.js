@@ -7,53 +7,87 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Colors from '../../../styles/Colors';
 
-const getLocation = (latitude, longitude) => {
-  Geocoder.init('AIzaSyAsIrHUXtFAXfJ5nYGGTal0MFFGCfH3ngM');
+const NewEntryAddressPicker = ({address, onChange}) => {
+  const getLocation = (latitude, longitude) => {
+    Geocoder.init('AIzaSyAsIrHUXtFAXfJ5nYGGTal0MFFGCfH3ngM');
 
-  Geocoder.from({latitude, longitude})
-    .then(json => {
-      const formattedAddress = json.results[0].formatted_address;
-      Alert.alert('Endereço Formatado', formattedAddress);
-    })
-    .catch(error => {
-      console.error(
-        'NewEntryAddressPicker :: getLocation :: erro ao recuperar a localização',
-        error,
-      );
-      Alert.alert(
-        'Houve um erro ao recuperar sua posição, por favor, tenha certeza que autorizou este aplicativo',
-      );
-    });
-};
+    Geocoder.from({latitude, longitude})
+      .then(json => {
+        const formattedAddress = json.results[0].formatted_address;
 
-const getPosition = () => {
-  Geolocation.getCurrentPosition(
-    pos => {
-      const latitude = pos.coords.latitude;
-      const longitude = pos.coords.longitude;
+        Alert.alert('Localização', formattedAddress, [
+          {
+            text: 'Cancelar',
+            onPress: () => {},
+            style: 'cancel',
+          },
+          {
+            text: 'Confirmar',
+            onPress: () => {
+              onChange({
+                latitude: latitude,
+                longitude: longitude,
+                address: formattedAddress,
+              });
+            },
+          },
+        ]);
+      })
+      .catch(error => {
+        console.error(
+          'NewEntryAddressPicker :: getLocation :: erro ao recuperar a localização',
+          error,
+        );
+        Alert.alert(
+          'Houve um erro ao recuperar sua posição, por favor, tenha certeza que autorizou este aplicativo',
+        );
+      });
+  };
 
-      getLocation(latitude, longitude);
-    },
-    error => {
-      console.error(
-        'NewEntryAddressPicker :: getPosition :: erro ao recuperar a posição',
-        error,
-      );
-      Alert.alert(
-        'Houve um erro ao recuperar sua posição, por favor, tenha certeza que autorizou este aplicativo',
-      );
-    },
-  );
-};
+  const getPosition = () => {
+    Geolocation.getCurrentPosition(
+      pos => {
+        const latitude = pos.coords.latitude;
+        const longitude = pos.coords.longitude;
 
-const NewEntryAddressPicker = () => {
+        getLocation(latitude, longitude);
+      },
+      error => {
+        console.error(
+          'NewEntryAddressPicker :: getPosition :: erro ao recuperar a posição',
+          error,
+        );
+        Alert.alert(
+          'Houve um erro ao recuperar sua posição, por favor, tenha certeza que autorizou este aplicativo',
+        );
+      },
+    );
+  };
+
   const onButtonPress = () => {
-    getPosition();
+    if (address) {
+      Alert.alert('Localização', address, [
+        {
+          text: 'Apagar',
+          onPress: () => {
+            onChange({latitude: null, longitude: null, address: ''});
+          },
+        },
+        {
+          text: 'Cancelar',
+          style: 'cancel',
+        },
+      ]);
+    } else {
+      getPosition();
+    }
   };
 
   return (
     <View>
-      <TouchableOpacity style={styles.button} onPress={onButtonPress}>
+      <TouchableOpacity
+        style={[styles.button, address ? styles.buttonActived : '']}
+        onPress={onButtonPress}>
         <Icon name="person-pin" size={30} color={Colors.violet} />
       </TouchableOpacity>
     </View>
@@ -71,6 +105,9 @@ const styles = StyleSheet.create({
     margin: 5,
     shadowColor: '#000',
     elevation: 5,
+  },
+  buttonActived: {
+    backgroundColor: Colors.green,
   },
 });
 
