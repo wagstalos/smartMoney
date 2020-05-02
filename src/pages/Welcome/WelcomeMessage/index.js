@@ -8,7 +8,7 @@ const WelcomeMessage = () => {
     <View>
       <Text style={styles.title}>Olá!</Text>
       <Text style={styles.message}>
-        Para começar a usar o Smart Money, você precisa informar o saldo atual.
+        Para começar a usar o WPS Money, você precisa informar o saldo atual.
         Vamos lá?
       </Text>
     </View>

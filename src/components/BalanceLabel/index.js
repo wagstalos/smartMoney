@@ -4,6 +4,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import useBalance from '../../hooks/useBalance';
+import Currency from '../Core/Currency';
 
 import Colors from '../../styles/Colors';
 
@@ -17,7 +18,9 @@ const BalanceLabel = () => {
       <LinearGradient
         style={styles.panel}
         colors={[Colors.green, Colors.greenDark]}>
-        <Text style={styles.value}>{balance}</Text>
+        <Text style={styles.value}>
+          <Currency value={balance} />
+        </Text>
       </LinearGradient>
     </View>
   );
