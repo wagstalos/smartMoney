@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Image, StyleSheet} from 'react-native';
+import {StatusBar, View, Image, StyleSheet} from 'react-native';
 
 import ActionFooter, {
   ActionPrimaryButton,
@@ -32,6 +32,7 @@ const Welcome = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <StatusBar barStyle="light-content" backgroundColor={Colors.violet} />
       <View style={styles.logo}>
         <Image source={Logo} />
       </View>
