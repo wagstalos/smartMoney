@@ -1,4 +1,4 @@
-package com.smartmoney;
+package br.com.wpsgames.wpsmoney_free;
 
 import android.app.Application;
 import android.util.Log;

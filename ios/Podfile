@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'smartMoney' do
-  # Pods for smartMoney
+target 'WPSMoney' do
+  # Pods for WPSMoney
   pod 'React', :path => '../node_modules/react-native/'
   pod 'React-Core', :path => '../node_modules/react-native/React'
   pod 'React-DevSupport', :path => '../node_modules/react-native/React'
@@ -32,7 +32,7 @@ target 'smartMoney' do
 
   pod 'react-native-camera', :path => '../node_modules/react-native-camera'
 
-  target 'smartMoneyTests' do
+  target 'WPSMoneyTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -40,10 +40,10 @@ target 'smartMoney' do
   use_native_modules!
 end
 
-target 'smartMoney-tvOS' do
-  # Pods for smartMoney-tvOS
+target 'WPSMoney-tvOS' do
+  # Pods for WPSMoney-tvOS
 
-  target 'smartMoney-tvOSTests' do
+  target 'WPSMoney-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

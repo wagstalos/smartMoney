@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     marginVertical: 10,
     marginHorizontal: 20,
-    padding: 20,
+    padding: 15,
   },
   pickerButtonText: {
     fontSize: 28,

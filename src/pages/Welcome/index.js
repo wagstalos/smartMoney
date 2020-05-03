@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     alignItems: 'center',
-    marginTop: 80,
+    marginTop: 70,
   },
 });
 

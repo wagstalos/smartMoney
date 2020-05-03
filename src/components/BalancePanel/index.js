@@ -5,7 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import BalancePanelLabel from './BalancePanelLabel';
-import BalancePanelChart from './BalancePanelChart';
+// import BalancePanelChart from './BalancePanelChart';
 
 import useBalance from '../../hooks/useBalance';
 
@@ -21,7 +21,7 @@ const BalancePanel = ({onNewEntryPress}) => {
         colors={[Colors.violet, Colors.blue]}
         style={styles.panel}>
         <BalancePanelLabel currentBalance={balance} />
-        <BalancePanelChart />
+        {/* <BalancePanelChart /> */}
       </LinearGradient>
       <TouchableOpacity style={styles.button} onPress={onNewEntryPress}>
         <Icon name="add" size={30} color={Colors.green} />
